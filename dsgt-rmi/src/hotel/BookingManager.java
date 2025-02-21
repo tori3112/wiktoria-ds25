@@ -30,7 +30,7 @@ public class BookingManager implements BookingInterface {
 			if (Objects.equals(room.getRoomNumber(), roomNumber)) {
 				List<BookingDetail> bookings = room.getBookings();
 				for (BookingDetail detail : bookings) {
-					if (detail.getDate() == date) {
+					if (detail.getDate().isEqual(date)) {
 						return false;
 					}
 				}
@@ -46,8 +46,11 @@ public class BookingManager implements BookingInterface {
 		}
 
 		for (Room room : rooms) {
+			List<BookingDetail> after_bookings = room.getBookings();
 			if (Objects.equals(bookingDetail.getRoomNumber(), room.getRoomNumber())) {
-				room.getBookings().add(bookingDetail);
+				after_bookings.add(bookingDetail);
+				room.setBookings(after_bookings);
+				break;
 			}
 		}
 
@@ -56,10 +59,13 @@ public class BookingManager implements BookingInterface {
 	public Set<Integer> getAvailableRooms(LocalDate date) throws RemoteException {
 		//implement this method
 		Set<Integer> availableRooms = new HashSet<Integer>();
-		Iterable<Room> roomIterator = Arrays.asList(rooms);
-		for (Room room : roomIterator) {
+		for (Room room : rooms) {
+			System.out.print("\nis room available?\t"+room.getRoomNumber()+"\t"+date);
 			if (isRoomAvailable(room.getRoomNumber(), date)) {
+				System.out.print(" -> true");
 				availableRooms.add(room.getRoomNumber());
+			} else {
+				System.out.print(" -> false");
 			}
 		}
 		return availableRooms;
