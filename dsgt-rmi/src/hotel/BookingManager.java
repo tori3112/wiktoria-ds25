@@ -42,7 +42,8 @@ public class BookingManager implements BookingInterface {
 	public void addBooking(BookingDetail bookingDetail) throws RemoteException {
 		//implement this method
 		if (!isRoomAvailable(bookingDetail.getRoomNumber(), bookingDetail.getDate())) {
-			throw new RemoteException("Room not available");
+			//throw new RemoteException("Room not available");
+			return;
 		}
 
 		for (Room room : rooms) {
@@ -60,12 +61,8 @@ public class BookingManager implements BookingInterface {
 		//implement this method
 		Set<Integer> availableRooms = new HashSet<Integer>();
 		for (Room room : rooms) {
-			System.out.print("\nis room available?\t"+room.getRoomNumber()+"\t"+date);
 			if (isRoomAvailable(room.getRoomNumber(), date)) {
-				System.out.print(" -> true");
 				availableRooms.add(room.getRoomNumber());
-			} else {
-				System.out.print(" -> false");
 			}
 		}
 		return availableRooms;
