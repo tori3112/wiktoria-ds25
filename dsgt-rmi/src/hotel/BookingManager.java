@@ -43,6 +43,7 @@ public class BookingManager implements BookingInterface {
 		//implement this method
 		if (!isRoomAvailable(bookingDetail.getRoomNumber(), bookingDetail.getDate())) {
 			//throw new RemoteException("Room not available");
+			System.out.println("Can't make this booking: room "+bookingDetail.getRoomNumber()+"\tdate: "+bookingDetail.getDate()+"\t NOT AVAILABLE");
 			return;
 		}
 
