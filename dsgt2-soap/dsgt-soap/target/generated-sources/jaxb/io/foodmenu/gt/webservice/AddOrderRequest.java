@@ -25,7 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="meal" type="{http://foodmenu.io/gt/webservice}meal"/&gt;
+ *         &lt;element name="order" type="{http://foodmenu.io/gt/webservice}order"/&gt;
+ *         &lt;element name="orderee" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +37,63 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "meal"
+    "order",
+    "orderee"
 })
-@XmlRootElement(name = "getMealResponse")
-public class GetMealResponse {
+@XmlRootElement(name = "addOrderRequest")
+public class AddOrderRequest {
 
     @XmlElement(required = true)
-    protected Meal meal;
+    protected Order order;
+    @XmlElement(required = true)
+    protected String orderee;
 
     /**
-     * Gets the value of the meal property.
+     * Gets the value of the order property.
      * 
      * @return
      *     possible object is
-     *     {@link Meal }
+     *     {@link Order }
      *     
      */
-    public Meal getMeal() {
-        return meal;
+    public Order getOrder() {
+        return order;
     }
 
     /**
-     * Sets the value of the meal property.
+     * Sets the value of the order property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Meal }
+     *     {@link Order }
      *     
      */
-    public void setMeal(Meal value) {
-        this.meal = value;
+    public void setOrder(Order value) {
+        this.order = value;
+    }
+
+    /**
+     * Gets the value of the orderee property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOrderee() {
+        return orderee;
+    }
+
+    /**
+     * Sets the value of the orderee property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOrderee(String value) {
+        this.orderee = value;
     }
 
 }

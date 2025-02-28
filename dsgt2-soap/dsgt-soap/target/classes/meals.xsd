@@ -46,6 +46,22 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="addOrderRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order" type="tns:order"/>
+                <xs:element name="orderee" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addOrderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="confirmation" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
     <xs:complexType name="meal">
         <xs:sequence>
@@ -54,6 +70,13 @@
             <xs:element name="description" type="xs:string"/>
             <xs:element name="mealtype" type="tns:mealtype"/>
             <xs:element name="price" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="order">
+        <xs:sequence>
+            <xs:element name="orderee" type="xs:string"/>
+            <xs:element name="meal" type="tns:meal"/>
         </xs:sequence>
     </xs:complexType>
 

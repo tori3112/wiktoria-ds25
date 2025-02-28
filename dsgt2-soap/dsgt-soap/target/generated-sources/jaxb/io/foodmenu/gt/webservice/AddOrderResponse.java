@@ -10,7 +10,6 @@ package io.foodmenu.gt.webservice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="meal" type="{http://foodmenu.io/gt/webservice}meal"/&gt;
+ *         &lt;element name="confirmation" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "meal"
+    "confirmation"
 })
-@XmlRootElement(name = "getMealResponse")
-public class GetMealResponse {
+@XmlRootElement(name = "addOrderResponse")
+public class AddOrderResponse {
 
-    @XmlElement(required = true)
-    protected Meal meal;
+    protected boolean confirmation;
 
     /**
-     * Gets the value of the meal property.
+     * Gets the value of the confirmation property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Meal }
-     *     
      */
-    public Meal getMeal() {
-        return meal;
+    public boolean isConfirmation() {
+        return confirmation;
     }
 
     /**
-     * Sets the value of the meal property.
+     * Sets the value of the confirmation property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Meal }
-     *     
      */
-    public void setMeal(Meal value) {
-        this.meal = value;
+    public void setConfirmation(boolean value) {
+        this.confirmation = value;
     }
 
 }

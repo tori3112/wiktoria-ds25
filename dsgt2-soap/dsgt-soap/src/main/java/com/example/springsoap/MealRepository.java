@@ -1,10 +1,7 @@
 package com.example.springsoap;
 
 import javax.annotation.PostConstruct;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 
 import io.foodmenu.gt.webservice.*;
@@ -16,6 +13,7 @@ import org.springframework.util.Assert;
 @Component
 public class MealRepository {
     private static final Map<String, Meal> meals = new HashMap<String, Meal>();
+    private static ArrayList<Order> orders = new ArrayList<>();
 
     @PostConstruct
     public void initData() {
@@ -73,4 +71,11 @@ public class MealRepository {
         return values.stream().min(Comparator.comparing(Meal::getPrice)).orElseThrow(NoSuchElementException::new);
     }
 
+    public boolean addOrder(Order order) {
+        if (order == null) return false;
+
+        orders.add(order);
+
+        return true;
+    }
 }
