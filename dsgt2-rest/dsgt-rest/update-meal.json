@@ -1,0 +1,22 @@
+{
+  "name": "Update Meal Test",
+  "request": {
+    "method": "PUT",
+    "url": "http://localhost:8080/restrpc/meals/5268203c-de76-4921-a3e3-439db69c462a",
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "body": {
+      "name": "Updated Spaghetti Bolognese",
+      "description": "Classic Italian pasta dish with premium beef",
+      "price": 15.99,
+      "mealType": "VEGGIE"
+    }
+  },
+  "expectedResponse": {
+    "status": 200,
+    "contentType": "application/json"
+  },
+  "test": "The response should contain the updated meal information"
+}

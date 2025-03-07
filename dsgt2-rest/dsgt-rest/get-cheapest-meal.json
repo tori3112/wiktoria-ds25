@@ -1,0 +1,15 @@
+{
+  "name": "Get Cheapest Meal Test",
+  "request": {
+    "method": "GET",
+    "url": "http://localhost:8080/restrpc/meals/cheapest",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "expectedResponse": {
+    "status": 200,
+    "contentType": "application/json"
+  },
+  "test": "The response should contain the cheapest meal in the system"
+}
