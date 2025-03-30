@@ -1,0 +1,15 @@
+{
+  "name": "Get Largest Meal Test",
+  "request": {
+    "method": "GET",
+    "url": "http://localhost:8080/restrpc/meals/largest",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "expectedResponse": {
+    "status": 200,
+    "contentType": "application/json"
+  },
+  "test": "The response should contain the most expensive meal in the system"
+}

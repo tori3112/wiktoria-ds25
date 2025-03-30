@@ -16,7 +16,7 @@
 	   The third parameter is filename for the final zip.	   
     ******************************************************** -->
   <property name="main.client" value="staff.BookingClient" />
-  <property name="main.server" value="hotel.BookingServer" />
+  <property name="main.server" vsrcalue="hotel.BookingServer" />
   <property name="zip.filename" value="rmi" />
   <!--
     ********************************************************
@@ -82,6 +82,14 @@
 			<zipfileset dir="src" prefix="src"/>
 		</zip>
   </target>
+
+<target name="jar">
+	<jar destfile="dist/rmi.jar" basedir="${build}">
+		<manifest>
+			<attribute name="Server-Class" value="${main.server}"/>
+		</manifest>
+	</jar>
+</target>
   
   <target name="run" depends="compile,registry.start,run.both,registry.stop"/>
   <target name="run-wo-compile" depends="registry.start,run.both,registry.stop" />

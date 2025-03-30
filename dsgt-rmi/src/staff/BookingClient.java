@@ -21,7 +21,7 @@ public class BookingClient extends AbstractScriptedSimpleTest {
 	public BookingClient() {
 		try {
 			// Get registry and lookup remote object
-			Registry registry = LocateRegistry.getRegistry();
+			Registry registry = LocateRegistry.getRegistry("172.191.97.184");
 			bm = (BookingInterface) registry.lookup("BookingManager");
 			System.out.println("Connected to BookingManager");
 		} catch (Exception e) {
@@ -59,7 +59,7 @@ public class BookingClient extends AbstractScriptedSimpleTest {
 		BookingClient client = new BookingClient();
 		try {
 			System.out.println("Looking up BookingManager...");
-			Registry registry = LocateRegistry.getRegistry(host);
+			Registry registry = LocateRegistry.getRegistry("172.191.97.184");
 			System.out.println("Available services: " + Arrays.toString(registry.list()));
 			BookingInterface stub = (BookingInterface) registry.lookup("BookingManager");
 			client.run();
