@@ -2,7 +2,6 @@ package hotel;
 
 import hotel.BookingManager;
 
-import java.awt.print.Book;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
@@ -11,6 +10,7 @@ import java.util.Arrays;
 public class BookingServer {
     public static void main(String[] args) {
         try {
+            System.setProperty("java.rmi.server.hostname", "172.191.97.184");
 
             BookingManager manager = new BookingManager();
             BookingInterface stub = (BookingInterface) UnicastRemoteObject.exportObject(manager, 0);

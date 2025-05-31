@@ -28,7 +28,6 @@ public class BookingClient extends AbstractScriptedSimpleTest {
 			System.err.println("Client initialization failed: " + e.getMessage());
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
