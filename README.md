@@ -1,4 +1,4 @@
-# Distributed Systems: Clound-based deployment with IaaS
+# Distributed Systems: Cloud-based deployment with IaaS
 
 This project focuses on deploying and testing remote services (RMI, SOAP, REST) on Azure Virtual Machines across global data centres as part of the [Distributed Systems](https://onderwijsaanbod.kuleuven.be/syllabi/e/T4YDS2E.htm#activetab=doelstellingen_idm3227376) lab.
 
